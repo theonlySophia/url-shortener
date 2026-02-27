@@ -4,10 +4,13 @@ import connectDB from "./Config/db.js";
 import dotenv from "dotenv";
 
 dotenv.config();
+import cors from 'cors';
+
 const app = express();
 app.use(express.json());
 //Body parser
 app.use(express.urlencoded({extended: false}));
+app.use(cors());
 
 //Serve static files from the "public" directory
 app.use(express.static('public'));

@@ -3,7 +3,7 @@
 // During local development: 'http://localhost:3000'
 // After deploying to Render: 'https://yourapp.onrender.com'
 // ============================================================
-const API_BASE = 'http://localhost:3000';
+const API_BASE = 'https://snip-url-shortener.onrender.com';
 
 
 // ============================================================
