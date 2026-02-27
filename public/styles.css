@@ -1,0 +1,314 @@
+/* ===========================
+   CSS VARIABLES (your theme)
+   =========================== */
+:root {
+    --bg: #f7f5f2;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #888;
+    --accent: #1a1a1a;
+    --accent-hover: #333;
+    --border: #e8e4df;
+    --error: #c0392b;
+    --success: #2ecc71;
+    --radius: 12px;
+    --shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+/* ===========================
+   RESET & BASE
+   =========================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ===========================
+   HEADER
+   =========================== */
+header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    letter-spacing: -1px;
+    color: var(--text);
+}
+
+.dot {
+    color: #c0392b;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+    font-weight: 300;
+}
+
+/* ===========================
+   MAIN LAYOUT
+   =========================== */
+main {
+    width: 100%;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ===========================
+   CARDS
+   =========================== */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: var(--shadow);
+}
+
+.card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+}
+
+.section-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+/* ===========================
+   INPUT GROUP
+   =========================== */
+.input-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.input-group input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    background: var(--bg);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.input-group input:focus {
+    border-color: var(--accent);
+}
+
+.input-group input::placeholder {
+    color: #bbb;
+}
+
+.input-group button {
+    padding: 12px 22px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+}
+
+.input-group button:hover {
+    background: var(--accent-hover);
+}
+
+.input-group button:active {
+    transform: scale(0.98);
+}
+
+/* ===========================
+   ERROR MESSAGE
+   =========================== */
+.error-msg {
+    color: var(--error);
+    font-size: 0.85rem;
+    margin-top: 10px;
+    min-height: 18px;
+}
+
+/* ===========================
+   RESULT BOX
+   =========================== */
+.result-box {
+    margin-top: 24px;
+    padding: 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    display: none; /* hidden by default, JS will show it */
+    flex-direction: column;
+    gap: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+.result-box.visible {
+    display: flex;
+}
+
+.result-label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+/* Short URL row with copy button */
+.short-url-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.short-url-row a {
+    font-size: 1rem;
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    word-break: break-all;
+    flex: 1;
+}
+
+.short-url-row a:hover {
+    text-decoration: underline;
+}
+
+.copy-btn {
+    padding: 6px 14px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    cursor: pointer;
+    color: var(--text);
+    transition: background 0.2s, border-color 0.2s;
+    white-space: nowrap;
+}
+
+.copy-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* QR code */
+.qr-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#qrCodeDisplay {
+    width: 160px;
+    height: 160px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+/* Original URL display */
+#originalUrlDisplay {
+    font-size: 0.95rem;
+    color: var(--text);
+    word-break: break-all;
+    text-decoration: none;
+}
+
+#originalUrlDisplay:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   DIVIDER
+   =========================== */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+    margin-top: 48px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    font-weight: 300;
+}
+
+/* ===========================
+   ANIMATIONS
+   =========================== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2.2rem;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+}

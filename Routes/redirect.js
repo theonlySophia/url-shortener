@@ -1,7 +1,7 @@
 import express from 'express';
 import Url from '../Models/url.js';
 
-import {urlCache , bufferedSave } from '../Utils/utils.js';
+import {urlCache} from '../Utils/utils.js';
 
 const router = express.Router();
 
@@ -22,14 +22,14 @@ router.get('/:urlId', async(req, res)=>{
         if(url && url.clicks < 1 ){
             url.clicks++;
             await url.save();
-            return res.redirect(url.originalUrl);
+            return res.status(302).redirect(url.originalUrl);
         }
         if (url && url.clicks >= 1){
             await Url.findOneAndDelete(url);
-            return res.status(404).json({error: "Url has been deleted after 1 click"});
+            return res.status(404).sendFile('404.html', {root: 'public'});
         }
         else {
-            return res.status(404).json({error: "Url not found"});
+            return res.status(404).sendFile('404.html', {root: 'public'});
         }
     }catch(err){
         console.log(err);

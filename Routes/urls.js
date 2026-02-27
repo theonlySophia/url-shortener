@@ -27,7 +27,7 @@ router.post('/shorten', async(req, res) =>{
         let url = await Url.findOne({originalUrl});
         console.log("Database query done");
         if (url){
-            res.json(url);
+            res.status(200).json(url);
         }else {
             const shortUrl = `${baseUrl}/${urlId}`;
 
@@ -39,7 +39,7 @@ router.post('/shorten', async(req, res) =>{
             light: '#ffb6c1'
         }
     });
-    console.log("QR Code generated:", qrCode);
+    // console.log("QR Code generated:", qrCode);
             url = new Url({
                 originalUrl,
                 shortUrl,
@@ -50,7 +50,7 @@ router.post('/shorten', async(req, res) =>{
             
             urlCache[urlId] = url; // Cache the URL in memory
             bufferedSave(url);
-            res.json(url);
+            res.status(201).json(url);
         }
     } catch (err){
         console.log("Full error:", err.message);

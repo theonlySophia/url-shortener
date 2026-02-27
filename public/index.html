@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Snip — URL Shortener</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">snip<span class="dot">.</span></div>
+        <p class="tagline">Short links. Clean and simple.</p>
+    </header>
+
+    <main>
+
+        <!-- SECTION 1: Shorten a URL -->
+        <section class="card" id="shorten-section">
+            <h2>Shorten a URL</h2>
+            <p class="section-desc">Paste your long URL below and get a clean short link with a QR code.</p>
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="originalUrl"
+                    placeholder="https://your-long-url.com/goes/here"
+                />
+                <button id="shortenBtn">Shorten</button>
+            </div>
+
+            <!-- Error message (hidden by default) -->
+            <p class="error-msg" id="shorten-error"></p>
+
+            <!-- Result (hidden by default) -->
+            <div class="result-box" id="shorten-result">
+                <p class="result-label">Your short link</p>
+                <div class="short-url-row">
+                    <a id="shortUrlDisplay" href="#" target="_blank"></a>
+                    <button class="copy-btn" id="copyBtn">Copy</button>
+                </div>
+                <div class="qr-wrapper">
+                    <p class="result-label">QR Code</p>
+                    <img id="qrCodeDisplay" src="" alt="QR Code" />
+                </div>
+            </div>
+        </section>
+
+        <!-- DIVIDER -->
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <!-- SECTION 2: Look up original URL -->
+        <section class="card" id="lookup-section">
+            <h2>Look up original URL</h2>
+            <p class="section-desc">Have a short link? Find out where it leads.</p>
+
+            <div class="input-group">
+                <input
+                    type="text"
+                    id="shortUrlInput"
+                    placeholder="https://short.ly/ab3xz"
+                />
+                <button id="lookupBtn">Look up</button>
+            </div>
+
+            <!-- Error message (hidden by default) -->
+            <p class="error-msg" id="lookup-error"></p>
+
+            <!-- Result (hidden by default) -->
+            <div class="result-box" id="lookup-result">
+                <p class="result-label">Original URL</p>
+                <a id="originalUrlDisplay" href="#" target="_blank"></a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Built with Node.js &amp; Express &nbsp;·&nbsp; &copy; 2026 Snip</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

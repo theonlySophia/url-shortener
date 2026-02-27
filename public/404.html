@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>404 — Link Not Found | Snip</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --bg: #f7f5f2;
+            --text: #1a1a1a;
+            --text-muted: #888;
+            --border: #e8e4df;
+            --error: #c0392b;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            margin-bottom: 48px;
+            color: var(--text);
+        }
+
+        .dot { color: var(--error); }
+
+        .error-code {
+            font-family: 'DM Serif Display', serif;
+            font-size: 6rem;
+            color: var(--error);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 300;
+            max-width: 360px;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        a.home-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--text);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        a.home-btn:hover {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">snip<span class="dot">.</span></div>
+    <div class="error-code">404</div>
+    <h1>Link not found</h1>
+    <p>This link may have expired, been deleted, or never existed. Double-check the URL and try again.</p>
+    <a href="/" class="home-btn">Back to home</a>
+</body>
+</html>
